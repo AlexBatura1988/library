@@ -25,4 +25,9 @@ public class PersonDAO {
                 .stream().findAny().orElse(null);
     }
 
+    public void save(Person person){
+        jdbcTemplate.update("INSERT INTO Person(full_name,year_of_birth) VALUES(?, ?)",person.getFullName(),
+                person.getYearOfBirth());
+    }
+
 }
