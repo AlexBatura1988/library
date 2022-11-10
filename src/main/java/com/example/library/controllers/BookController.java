@@ -1,6 +1,7 @@
 package com.example.library.controllers;
 
 import com.example.library.dao.BookDAO;
+import com.example.library.dao.PersonDAO;
 import com.example.library.models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,10 +15,12 @@ import javax.validation.Valid;
 @RequestMapping("/books")
 public class BookController {
     private final BookDAO bookDAO;
+    private final PersonDAO personDAO;
 
     @Autowired
-    public BookController(BookDAO bookDAO) {
+    public BookController(BookDAO bookDAO, PersonDAO personDAO) {
         this.bookDAO = bookDAO;
+        this.personDAO = personDAO;
     }
 
     @GetMapping()
